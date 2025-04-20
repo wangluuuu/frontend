@@ -1,19 +1,13 @@
 <template>
   <el-container style="height: 100vh;">
-    <el-header style="background: aqua">
-      <!-- 头像 -->
-      <div class="avatar-wrapper">
-        <el-avatar size="large" src="path/to/avatar.jpg"></el-avatar>
-      </div>
+    <el-header style="background: aqua;padding: 0">
+      <top-menu/>
     </el-header>
-    <el-container>
+    <el-container style="padding: 10px 10px">
       <!-- 左侧侧边栏 -->
       <el-aside width="240px" class="sidebar">
-        <!-- 导航按钮 -->
-        <el-menu>
-          <el-menu-item index="1">社区</el-menu-item>
-          <el-menu-item index="2">我的博客</el-menu-item>
-        </el-menu>
+        <!-- 日历 -->
+        <LCalendar />
         <!-- 个人时间线 -->
         <h3>个人时间线</h3>
         <el-timeline>
@@ -48,7 +42,7 @@
 
       <!-- 右侧详情区 -->
       <el-aside width="800px" class="detail" style="background: cadetblue">
-        <router-view name="detail" />
+        <router-view name="detail"/>
       </el-aside>
     </el-container>
 
@@ -90,15 +84,18 @@
 // 组件挂载时自动调用
 // onMounted(fetchArticles)
 
-import { ref, onMounted } from 'vue'
+import {ref, onMounted} from 'vue'
+import TopMenu from "../components/home/TopMenu.vue";
+import LCalendar from "../components/Dates/LCalendar.vue";
 
 // 时间线数据示例
 const timeline = ref([
-  { date: '2025-04-01', content: '项目启动', color: 'blue' },
-  { date: '2025-04-05', content: '完成登录注册', color: 'green' },
-  { date: '2025-04-10', content: '完成列表页', color: 'gray' },
+  {date: '2025-04-01', content: '项目启动', color: 'blue'},
+  {date: '2025-04-05', content: '完成登录注册', color: 'green'},
+  {date: '2025-04-10', content: '完成列表页', color: 'gray'},
 ])
 
+const value = ref(new Date())
 </script>
 <style scoped>
 
