@@ -24,20 +24,21 @@
 
       <!-- 中间博客列表 -->
       <el-main class="content" style="background: antiquewhite">
-        <el-row :gutter="20">
-          <el-col
-              v-for="article in articles"
-              :key="article.id"
-              :xs="24" :sm="12" :md="8" :lg="6"
-          >
-            <el-card shadow="hover" class="article-card">
-              <template #header>
-                <h3>{{ article.title }}</h3>
-              </template>
-              <p class="summary">{{ article.summary }}</p>
-            </el-card>
-          </el-col>
-        </el-row>
+<!--        <el-row :gutter="20">-->
+<!--          <el-col-->
+<!--              v-for="article in articles"-->
+<!--              :key="article.id"-->
+<!--              :xs="24" :sm="12" :md="8" :lg="6"-->
+<!--          >-->
+<!--            <el-card shadow="hover" class="article-card">-->
+<!--              <template #header>-->
+<!--                <h3>{{ article.title }}</h3>-->
+<!--              </template>-->
+<!--              <p class="summary">{{ article.summary }}</p>-->
+<!--            </el-card>-->
+<!--          </el-col>-->
+<!--        </el-row>-->
+        <RainbowButton/>
       </el-main>
 
       <!-- 右侧详情区 -->
@@ -49,6 +50,7 @@
   </el-container>
 </template>
 <script setup>
+import RainbowButton from "../inspiraUI/button/RainbowButton.vue";
 // import { ref, onMounted } from 'vue'
 // import axios from "axios"; // 按需配置的 axios 实例
 // import { useRouter } from 'vue-router'

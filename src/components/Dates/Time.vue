@@ -20,6 +20,7 @@ import {onMounted, onUnmounted, ref} from "vue";
 
 const time = ref('')
 let timer = null
+//获取当前时间
 const now = ref(new Date())
 const weekdays = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
 
@@ -36,8 +37,10 @@ const updateTime = () => {
   time.value = `${hours}:${minutes}:${seconds}`
 }
 
+//组件挂载完成后执行
 onMounted(() => {
   updateTime()
+  //定时调用更新
   timer = setInterval(updateTime, 1000)
 })
 
